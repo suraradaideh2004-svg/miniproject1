@@ -1,0 +1,199 @@
+body{
+    background-image: url(https://images.pexels.com/photos/370799/pexels-photo-370799.jpeg);
+   background-size: cover;
+   background-position: right;
+
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height:100vh;
+width: 100%;
+}
+.sginupform{
+        display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    text-align: left;
+    height: auto;
+box-sizing: border-box;
+background-color: rgb(100, 169, 219);
+width:400px;
+padding: 20px;
+margin: 50px auto;
+border-radius: 10px;
+box-shadow:  4px 4px 50px rgb(99, 152, 236);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+color: aliceblue;
+text-transform: capitalize;
+}
+
+h1{
+    font-size: 29px;
+font-weight: bolder;
+text-transform:uppercase;
+margin-bottom: 20px;
+}
+
+
+.ErrorMsg, .ErrorMsgCorrect {
+display: none;
+font-size: 12px;
+}
+input{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    text-align: left;
+width:200px;
+padding: 10px;
+margin: 6px;
+border: 1px solid rgb(99, 152, 236);
+border-radius: 5px;
+
+}
+/**label{
+    background-color: white;
+}**/
+button{
+  display: block;   
+  margin: 20px 85px;  
+        padding: 10px 15px;
+    background: rgb(99, 152, 236);
+    color: white;
+border-radius: 5px;
+    cursor: pointer;
+
+}
+.loginform{
+ width: 400px;             
+    padding: 20px;
+    background: #f8f8ff;
+
+
+    text-align: left;  
+    text-align: left;
+    height: auto;
+box-sizing: border-box;
+background-color: rgb(100, 169, 219);
+width:400px;
+padding: 20px;
+margin: 50px auto;
+border-radius: 10px;
+box-shadow:  4px 4px 50px rgb(99, 152, 236);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+color: aliceblue;
+text-transform: capitalize;
+}
+.loginform input{
+display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    text-align: left;
+width:200px;
+padding: 10px;
+margin: 6px;
+border: 1px solid rgb(99, 152, 236);
+border-radius: 5px;
+
+}
+/**.loginform label{
+    background-color: white;
+
+}**/
+.loginform button{
+    display: block;   
+  margin: 20px 85px;  
+        padding: 10px 15px;
+    background: rgb(99, 152, 236);
+    color: white;
+border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.loginform h2{
+
+     font-size: 29px;
+font-weight: bolder;
+text-transform:uppercase;
+margin-bottom: 20px;
+align-items: center;
+}
+
+
+
+#funAlert {
+  display: none;              
+  position: fixed;           
+  top: 50%;                  
+  left: 50%;                   
+      background: white;
+  color: black;               
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow:  4px 4px 50px rgb(99, 152, 236);
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 9999;          
+  animation: slideDown 0.5s;     
+}
+.NAV {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgb(99, 152, 236);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: first baseline; 
+            align-items: center;
+            z-index: 1000;
+               color: #f8f8ff;
+        }
+        nav ul li {
+            list-style: none;}
+
+
+        nav ul li {
+            list-style: none;
+            color: #f8f8ff;
+            display: flex;
+            align-items:center;
+            justify-content:center;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+              text-align: center;
+            margin-top: 100px; 
+        }
+
+     
+
+     
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgb(99, 152, 236);
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+        }

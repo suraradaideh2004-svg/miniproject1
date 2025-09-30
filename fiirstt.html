@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>Signup - Create Your Account</title>
+    <link rel="icon" href="building (1).png" type="png">
+
+    <link rel="stylesheet" href="ppp.css">
+</head>
+<body>
+
+ <div class="sginupform">
+    <h1>signup</h1>
+
+    <form class="form1">
+                <div class="box1">
+                    <label >  <img src="user.png">First Name </label><br>
+                    <input type="text"  id="FIRSTNAME"  placeholder="ENTER YOUR  FIRST NAME">
+                        <span id='pwmessage'></span><br>
+                                <p style="color: green;" class="ErrorMsgCorrect"> Correct </p> 
+                                    <p style="color: brown;" class="ErrorMsg"> You must check Name spellig </p> 
+                </div>
+                <div class="box2">
+                    <label >  
+                        <img src="user.png">Last Name </label><br>
+                    <input type="text"  id="LASTNAME"  placeholder="ENTER YOUR  LAST NAME">
+                        <p style="color: green;" class="ErrorMsgCorrect"> Correct </p> 
+                                    <p style="color: brown;" class="ErrorMsg"> You must check Name spellig </p> 
+                </div>
+                <div class="box3">
+                    <label >    <img src="email.png">Email</label><br>
+                    <input type="email"  id="EMAIL"  placeholder="ENTER YOUR  EMAIL">
+                    <p style="color: green;" class="ErrorMsgCorrect"> Correct </p> 
+                            <p style="color: brown;" class="ErrorMsg"> You must check Email spellig </p> 
+                
+                </div>
+                <div class="box4">
+                    <label > <img src="padlock.png">Password</label><br>
+                    <input required type="password"  id="PASS"  placeholder="ENTER STRONG PASSWORD">
+                        <p style="color: green;" class="ErrorMsgCorrect"> Correct </p> 
+                            <p style="color: brown;" class="ErrorMsg">Password must be at least 8 characters and contain a number </p> 
+                </div>
+                <div class="box5">
+                    <label ><img src="padlock.png">Confirm Password </label><br>
+                    <input type="password"  id="CONPASS"  placeholder="ENTER SAME PASSWORD">
+                        <p style="color: green;" class="ErrorMsgCorrect"> Correct </p> 
+                            <p style="color: brown;" class="ErrorMsg">NOT THE SAME PASSWORD</p> 
+                </div>
+                <button type="submit" class="BUTTON"> Signup</button>
+                 <div id="funAlert"></div>
+        
+                <p>Already have an account?  <a href="login.html"> Login here</a></p>
+        </form>
+<div>
+    <script src="ppp.js"></script>
+</body>
+</html>
