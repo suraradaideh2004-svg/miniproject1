@@ -1,118 +1,93 @@
-let form = document.querySelector(".form1");
-let FIRSTNAME = document.getElementById("FIRSTNAME");
-let LASTNAME = document.getElementById("LASTNAME");
-let PASS = document.getElementById("PASS");
-let CONPASS=document.getElementById("CONPASS");
-// confirm password
-let EMAIL = document.getElementById("EMAIL");
-let BUTTON=document.getElementsByClassName("BUTTON");
-    const funAlert = document.getElementById("funAlert");
+//DOM=>DOCUMENT ODJECT MODEL هي الطريقه التي تستطيع JSمن خلال التحكم و تعديل على العناصر بصفحه HTML
+//تخزين البيانات بطريقتين 
+//LOCAL STORAG=>المحافظه على البيانات حتى بعد اغلاق TAGS ,:::
+//SET ITEM=>(key, value) لتخزين البيانات
+ //GET ITEM=>(key)  لاسترجاع البيانات المخزنة
+//value تُستخدم للحصول على أو تغيير قيمة
+//Regex هي طريقة للتحقق من صحة البيانات مثل البريد الإلكتروني أو كلمة المرور
+//Local Storage يخزن البيانات دائمًا كسلسلة نصية (String)
 
-// Saved in Local storage
+document.addEventListener("DOMContentLoaded", () => {
+const sginform1 = document.getElementById("sginform1");
+if (sginform1) {
+        sginform1.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    let name = document.getElementById("FIRSTNAME").value.trim();
+let lastname = document.getElementById("LASTNAME").value.trim();
+let email=document.getElementById("EMAIL").value;
+    let pass = document.getElementById("PASS").value;
+    let confirm = document.getElementById("CONPASS").value;
 
- let ErrorMsgCorrect = document.getElementsByClassName("ErrorMsgCorrect");
- let ErrorMsg = document.getElementsByClassName("ErrorMsg");
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
- form.addEventListener("submit", function(e) {
-e.preventDefault();});
+let emailtest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let passtest = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
-FIRSTNAME.addEventListener("click",function(){
-    FIRSTNAME.focus();
+
+
+    if (name ==="" && lastname ==="") {
+        alert("Please register your name")
+        return;
+    }
+    if (!emailtest.test(email)) {
+        alert("Invalid email format")
+        
+    }
+if (!passtest.test(pass)) {
+        alert("Password must be 8+ chars, with uppercase, lowercase and number.");
+        return;
+}
+    if (pass !== confirm) {
+        alert("Passwords do not match.");
+        return;
+    }
+    if (users.find((u) => u.email === email)) {
+        alert("Email already registered.");
+        return;
+    }
+
+    users.push({ name, email, password: pass });
+    localStorage.setItem("users", JSON.stringify(users));
+    funAlert.innerText="🎊🎊Signup successful!🎊🎊 ";
+    funAlert.style.display="block";
+    sginform1.reset();
+setTimeout(()=>{
+window.location.href = "LAST.html";
+},3000);
+
 });
-LASTNAME.addEventListener("click",function(){
-    LASTNAME.focus();
+}
 });
-PASS.addEventListener("click",function(){
-    PASS.focus();
+//################pagge login##########
+
+document.addEventListener("DOMContentLoaded", () => {
+const loginform = document.getElementById("loginform");
+if (loginform) {
+        loginform.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    let EMAIL=document.getElementById("EMAIL1").value.trim();
+    let pass1 = document.getElementById("PASS1").value;
+
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    let user = users.find((u) => u.email === EMAIL && u.password === pass1);
+
+    if (!user) {
+        alert("Invalid email or password.");
+        return;
+    }
+
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    funAlert.innerText="🎊🎊loginform successful!🎊🎊 ";
+    funAlert.style.display="block";
+    loginform.reset();
+setTimeout(()=>{
+window.location.href = "LAST.html";
+},3000);
+
+
 });
-EMAIL.addEventListener("click",function(){
-    EMAIL.focus();
+}
 });
-
-let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-if (FIRSTNAME.value === ""||  LASTNAME.value==="" ) {
-
-
-    FIRSTNAME.parentElement.querySelector(".ErrorMsg").style.display = "block";
-
-    FIRSTNAME.parentElement.querySelector(".ErrorMsgCorrect").style.display = "none";
-} else {
-
-    FIRSTNAME.parentElement.querySelector(".ErrorMsgCorrect").style.display = "block";
-
-    FIRSTNAME.parentElement.querySelector(".ErrorMsg").style.display = "none";
-}
-
-let allValid=true;
-
-//رح يتحقق انه الايميل صح
-
- if (!emailPattern.test(EMAIL.value)) {
-  EMAIL.parentElement.querySelector(".ErrorMsg").style.display = "block";
-
-    EMAIL.parentElement.querySelector(".ErrorMsgCorrect").style.display = "none";
-    allValid=false;
-} else {
-
-    EMAIL.parentElement.querySelector(".ErrorMsgCorrect").style.display = "block";
-
-    EMAIL.parentElement.querySelector(".ErrorMsg").style.display = "none";
-    localStorage.setItem("emailPattern", EMAIL.value);
-}
-// رح يتحقق انه كلمه السر من 8 احرف
-
-if (PASS.value.length<8) {
-        PASS.parentElement.querySelector(".ErrorMsgCorrect").style.display = "none";
-
-    PASS.parentElement.querySelector(".ErrorMsg").style.display = "block";
-    allValid=false;
-}
-
-else {
-
-    PASS.parentElement.querySelector(".ErrorMsgCorrect").style.display = "block";
-
-    PASS.parentElement.querySelector(".ErrorMsg").style.display = "none";
-localStorage.setItem("PASS",PASS.value);
-}
-
-// رح يقارن بين كلمتين السر
-if (CONPASS.value!=PASS.value){
-
-CONPASS.parentElement.querySelector(".ErrorMsgCorrect").style.display = "none";
-
-    CONPASS.parentElement.querySelector(".ErrorMsg").style.display = "block";
-    allValid=false;
-}
-
-else {
-
-    CONPASS.parentElement.querySelector(".ErrorMsgCorrect").style.display = "block";
-
-    CONPASS.parentElement.querySelector(".ErrorMsg").style.display = "none";
-localStorage.setItem("CONPASS",CONPASS.value);
-}
-
-
-    //🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 النهايه يالصفحتين
-if(allValid){
-funAlert.innerText = "🎉 All fields are correct!";
-funAlert.style.display = "block";
-
-setTimeout(() =>
-    { funAlert.style.display = "none";
-window.location.href ="LASTNAME.HTML";},5000);
-form.reset();
-    document.querySelectorAll(".ErrorMsgCorrect").forEach(p => p.style.display = "none");}
-
-
-
-
-
-
-
-
-
-
-
